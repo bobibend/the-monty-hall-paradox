@@ -292,6 +292,10 @@ $(document).ready(function(){
 
 /* A programrész először kiosztja az ajtók mögötti nyereményeket.
 0= kecske, 1= kecske 2= autó */
+if (counter > 200) {
+  alert("Írj kevesebb kört!");
+  counter = 0;
+}
 
 function simulator(color) {
 
