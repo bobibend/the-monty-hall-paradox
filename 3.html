@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Monty Hall paradox</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" integrity="sha512-IJEbgDEF7OeKJRa0MY2PApnyJHRIsgzCveek4ec8VWQ+7KG3ZSKVNYa5xP/Gh0hVP0Mwb+gBsk+GwR3JQGhQNg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="monty_hall_paradox.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sansita:wght@700&family=Scope+One&family=Shrikhand&display=swap" rel="stylesheet">
+  <script src="monty_hall_paradox.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/750947ef98.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="innerBody">
+ <div id="menu">
+  <a class= menuA id="menuGame" href="#game">Vetélkedő</a>
+  <a class= menuA id="menuExplanation" href="#explanation">Magyarázat</a>
+  <a class= menuA id="menuSimulator" href="#simulator">Szimulátor</a>
+ </div>
+ <header>
+  <div id="title">
+    <h1 id="h1Primary"> MONTY HALL-PARADOXON </h1>
+    <h1 id="h1Secondary"> MONTY HALL-PARADOXON </h1>
+  </div>
+ </header>
+ <div class="UV" id="UV1">
+  <div class="UV" id="UV1Inner"></div>
+ </div>
+ <div class="UV" id="UV2">
+  <div class="UV" id="UV2Inner"></div>
+ </div>
+ <article id="story">
+  <p>Monty Hall majd 30 éven át volt házigazdája az USA-ban futó <em>Let's make a deal</em> című televíziós vetélkedőnek. 
+    A róla elnevezett Monty Hall-paradoxon a játék legismertebb feladatán alapul, melyben a játékosnak 
+    három ajtó közül kellett kiválasztania azt az egyet, amely mögött egy autó volt.
+    A másik két ajtó igazi élő kecskéket rejtett, tényleg, ott legelésztek, meg minden, de nyilván rájuk 
+    sokkal kevésbé vágytak a játékosok. 
+  </p>
+  <p>Igen ám, de miután a játékos kiválasztotta a neki tetsző ajtót, Monty Hall megmutatott neki egy olyat,
+    amely mögött egy kecske legelészett. Ezután pedig, vagy azért, hogy összezavarja a játékost, vagy azért, hogy ez a paradoxon 
+    létrejöhessen, megkérdezte az illetőtől, meg akarja-e változtatni az eredeti döntését, 
+    és kiválasztja-e a maradék, harmadik ajtót, amelyről addig semmit sem tudhattunk, csupán csak annyit, hogy a játékos nem azt választotta.
+    Na és persze azt is, hogy lehet, amögött is van egy kecske, vagy akár egy autó. 
+  </p>
+  <p>Azonban mennyi esély van arra, hogy a játékos autót nyerjen? Mennyi arra, hogy kecskét? Valószínűleg ugyanannyi, mert hát van két ajtó, az egyik mögött biztosan van egy kecske, a másik mögött pedig egy autó. 
+    A képlet elég egyszerűnek tűnik, csak mégis ott van Monty Hall a nyugtalanító kérdésével. <em>Megváltoztatod-e a döntésedet, vagy inkább kitartasz?</em>
+  </p>
+  <p>Az emberben már ott van a kétely:<em> Mégis miért kérdezi Monty Hall, hogy változtatni akarok-e? </em> Ezzel két stratégia nyílik meg. Vagy megváltoztatod a döntésedet vagy nem. Fifti-fifti... 
+    Nem mindegy neki? Egyáltalán mi ebben a paradoxon? 
+  </p>
+ </article>
+ <section id="game">
+  <div class="center">
+    <h2 class="h2Primary">Vetélkedjünk!</h2>
+    <h2 class="h2Secondary">Vetélkedjünk!</h2>
+  </div>
+  <p id="gameIntro">Ha jobban meg szeretnéd érteni a paradoxon lényegét, a legjobb választás, ha eljátszod. Ehhez szükségünk lesz mindenek előtt Monty Hallra, 
+  három ajtóra, két kecskére, no meg egy autóra. Kezdhetjük?
+   <div class="buttonContainer">
+    <div class="do" id="yesButton1Container">
+      <button class="doors" id="yesButton1">Csapjunk bele!</button>
+    </div> 
+   </div>
+  </p>
+  <div class="MontyHall">
+    <div id="montyHallBackground"></div>
+      <img src="Pics/Monty_Hall.png" alt="Monty Hall" class="montyHallPic">
+    </div>
+  <p class="Mtext"> Üdvözlöm a Monty Hall-paradoxonban! Hogy szólíthatom?</p>
+  <p class="gamer"><p class="inputField"><input class="name"></p></p>
+  <p class="Mtext">Csodás név. <span class="nameSpan"></span> Sok sikert kívánok!
+    <div id="doorsContainer">
+      <img class="gameDoors" id="blueDoor" src="Pics/blueDoor.png" alt="blue door"> 
+      <img class="gameDoors" id="yellowDoor" src="Pics/yellowDoor.png" alt="yellow door"> 
+      <img class="gameDoors" id="redDoor" src="Pics/redDoor.png" alt="red door">
+    </div> 
+  <p class="Mtext">Mint látja, itt van három ajtó. Kettő mögött egy-egy kecske található, a harmadik ajtó mögé viszont egy vadonatúj autót parkoltak. Ha rátalál erre az ajtóra, öné lesz az autó. Melyik ajtót választja, melyik szimpatikus?</p>
+  <p class="gamer"></p>
+  <div class="buttons">
+    <div class="do coloredDoorsContainer"><button class="doors coloredDoors" id="blueDoorButton">kék</button></div>
+  </div>  
+  <div class="buttons"> 
+    <div class="do coloredDoorsContainer"><button class="doors coloredDoors" id="yellowDoorButton">sárga</button></div>
+  </div> 
+  <div class="buttons">
+    <div class="do coloredDoorsContainer"><button class="doors coloredDoors" id="redDoorButton">piros</button></div>
+  </div>
+  <p class="Mtext">A <span id="gameFirstChoice"></span> ajtót választotta. Most nézzük meg az egyik kecskét. Mit szól hozzá? </p>
+  <div class="buttonContainer">
+    <div class="do  buttons">
+      <button class="doors" id="yesButton2">Kérem a kecskémet!</button>
+    </div> 
+  </div>
+  <p class="Mtext">Nyissuk ki a <span id="gameShowGoatID"></span> ajtót! 
+    <div id="showGoatContainer">
+      <img class="gameDoors colorGoats" id="blueGoat" src="Pics/ne szorakozz a kecskevel kek.png" alt="Kék ajtók előtti kecske">
+      <img class="gameDoors colorGoats" id="yellowGoat" src="Pics/ne szorakozz a kecskevel sárga.png" alt="Sárga ajtók előtti kecske">
+      <img class="gameDoors colorGoats" id="redGoat" src="Pics/ne szorakozz a kecskevel piros.png" alt="Piros ajtók előtti kecske">  
+    </div>
+  <p class="Mtext">Látja, milyen szimpatikus? A játéknak még azonban nincs vége. Folytathatjuk? </p>  
+  <div class="buttonContainer">
+    <div class="do">
+      <button class="doors" id="yesButton3">Természetesen</button>
+    </div>
+  </div> 
+  <p class="Mtext">Mit gondol, <span class="nameSpan"></span>, nem akarja megváltoztatni a döntését, és esetleg a <span class="secondChoice"></span> ajtót választani?</p>
+  <p class="gamer"></p>
+  <div class="buttons">
+    <div class="do finalChoiceContainer"><button class="doors finalChoice" id="change">A <span class="secondChoice"></span> ajtót </br> választom.</button></div>
+  </div>
+  <div class="buttons">
+    <div class="do biggerDo finalChoiceContainer"><button class="doors finalChoice" id="stay">Inkább maradnék </br> az eredeti döntésemnél!</button></div>
+  </div>
+  <p class="yes Mtext" id="myFinalChoice"></p>
+  <p class="Mtext">Nézzük meg, mi lapul az ön által választott ajtó mögött! Felkészült?</p>
+  <div class="buttonContainer" >
+    <div class="do biggerDo" id="buttonContainerYesButton4">
+      <button class="doors" id="yesButton4">Jöjjön az igazság pillanata!</button>
+      <audio class="sounds" id="buttonsSound" src="Sounds/push_sounds.mp3"></audio>
+    </div>
+  </div>
+  <div class="Mtext" id="winText">
+    <p>Gratulálok!</p>
+    <div id="prizeCarContainer">
+      <img id="prizeCar" src="Pics/Réteg 3_ellipszis.png" alt="nyereményautó">
+    </div>
+    <p>Megnyerte az autót! Micsoda nap, micsoda játék! De vajon mennyi volt ennek az esélye?</p>
+  </div>
+  <p class="Mtext" id="lostText">Most sajnos nem járt sikerrel! De egy kecske sem rossz, nőstény, bármikor fejheti! Tudja, mennyi esélye volt arra, hogy így veszítsen?</p>
+  </section>
+  <section id="explanation">
+    <div class="center">
+      <h2 class="h2Primary">Magyarázat</h2>
+      <h2 class="h2Secondary">Magyarázat</h2>
+    </div>
+    <article>
+      <p>Gondolom érdekel, hogy mennyi esélyünk volt autót nyerni ebben a játékban. Te mit gondolsz?</p>
+      <div class="buttons" id="percentNumberContainerWrapper">
+      <div class="do percentNumberContainer"><button class="doors percentNumber thirtyThreefifty" id="thirtyThree">33.3%</button></div>
+      <div class="do percentNumberContainer"><button class="doors percentNumber thirtyThreefifty" id="fifty">50%</button></div>
+      <div class="do percentNumberContainer"><button class="doors percentNumber" id="sixtySix">66.6%</button></div>
+      </div>
+      <p class="yes Ntext" id="correctText">A válaszod helyes! Te már, értheted ennek a paradoxonnak a lényegét.</p>
+      <p class="no Ntext" id="wrongText">Az igazás az, hogy a helyes válasz 66.6%. De vajon miért?</p>
+      <p class="Ntext"></br>Hogy jobban megérthessük a választ, érdemes szemügyre venni, miért pont ezek a lehetőségek merültek fel.
+         33.3% az esély arra, hogy 3 ajtóból egy konkrét nyereményt válasszunk ki. Ha mondjuk a két kecske közül, egyiket 
+         Foltosnak hívják, másikat pedig Matildának, akkor ahhoz, hogy mondjuk Matilda legyen a miénk, egy a háromhoz esélyünk van, 
+         mivel három lehetőségből csak az egyik az, ami számunkra kedvezőnek bizonyul. Innen indulva belátható, hogy arra az esély,
+         hogy három ajtóból kiválasszuk az autót, szintén csak 33.3%. 
+      </p>
+      <p class="Ntext">Rendben van, de hogyan kerül képbe az 50%? Talán az emberek nagy többsége ezt választja. Egészen érhető, hogy miért.
+         Mikor Monty Hall már megmutatott nekünk egy kecskét, a továbbiakban két ajtó marad csak szabadon, ezek közül pedig a választás
+         egészen egyforma. Ha kettőből kell kiválasztanom egyet, akkor teljesen mindegy, melyiket választom, nyugodtan maradhatok
+         az eredeti döntésemnél is, hiszen az az enyém. A valóság viszont máshogyan működik, és ennek belátása okozza a paradoxon látszatát.
+      </p>
+      <p class="Ntext">Hiszen ebben az esetben voltaképpen azt látjuk, hogy az a választásunk, ami 33.3%-ot ért, megegyezik azzal,
+         amit 50%-nak hiszünk. Lehetséges lenne? Változott-e egyáltalán valami a két eset között?
+      </p>
+      <p class="Ntext">Az igazság az, hogy nem változott. Hiszen, hiába mutatott meg nekünk Monty Hall egy ajtót tele kecskével, mi még mindig úgy játszunk,
+         mintha semmit sem tudnánk az ajtó mögötti nyereményekről. Ez egy logikus magyarázat arra, miért játszunk rosszul.
+      </p>
+      <p class="Ntext">A valódi meggyőzés viszont az lesz, ha megértjük; abban az esetben, ha Monty Hall kérésére ajtót cserélünk, csakis akkor nem fogjuk
+         megnyerni az autót, ha már eleve azt az ajtót választottuk ki.
+      </p>
+      <p class="Ntext">Merthogy eddig még nem beszéltünk valamiről, ami igencsak fontos tényezője ennek a játéknak. Ez pedig a döntésünk megváltoztatásának a lehetősége.
+         Ha nem tehetnénk ezt meg, akkor mindeképp 33.3%-os eséllyel nyernénk valamit, vagy ha Foltost és Matildát egybevesszük, akkor 33.3%-unk lenne autót nyerni és 66.6%-unk kecskét.
+         Azt látjuk, hogy az új ajtó választásával viszont megváltozik az arány a két lehetőség között. Vajon miért?
+      </p>
+      <p class="Ntext">Meg kell értenünk, hogy a döntésünk megváltoztatásával hogyan befolyásolhatjuk az esélyeinket.
+         Abban az esetben, ha Monty Hall egy tetszőleges ajtót mutatna meg nekünk, az esélyeink a végső elszámoláskor valóban egyenlőek lennének, azonban Monty Hall
+         mindig egy olyan ajtót mutat meg, ami mögött kecske található.
+         Nézzük meg a játékot úgy, hogy minden esetben megváltoztatjuk az eredeti döntésünket.
+      </p>
+      <p class="Ntext">Ha először az autót választottuk, Monty Hall megmutatja nekünk Foltost (vagy Matildát), mi megváltoztatjuk a döntésünket Matildára (vagy Foltosra), ezzel egy kecskét vihetünk haza.
+         Ha először Foltost választjuk ki, Monty Hall megmutatja nekünk Matildát, így ha új ajtót választunk, amögött az autó lesz.
+         Ha pedig Matildát választjuk ki először, Foltost fogja Monty Hall megmutatni, és mi újra autót nyerünk. 
+         Láthatjuk, hogy három esetből kétszer nyerünk autót, ami 66.6%. Tehát mindig autót nyertünk, ha először kecskét választottunk. Egyszerű, nem igaz?
+      </p>
+    </article>
+  </section>
+  <section id="simulator">
+     <div class="center">
+       <h2 class="h2Primary">Szimulátor</h2>
+       <h2 class="h2Secondary">Szimulátor</h2>
+     </div>
+      <p>Ha pedig még mindig nem győztelek meg teljesen, vagy csak szeretnéd látni, hogy tetszőleges esetből hányszor nyerhetsz autót,
+         próbáld ki a Monty Hall szimulátort!
+      </p>
+      <p></br><label>Hány játékot szeretnél játszani?</label></p>
+      <div class="inputField gameCountAfter buttons">
+        <input id="gameCount">
+        <audio class="sounds" id="slotGameAudio" src="Sounds/slotgame.mp3"></audio>
+      </div>
+        <br>
+      <label>Milyen taktikával játszanál?</label>
+        <br>
+        <section id="toggle">
+         <div id="action">Ajtót váltok</div>
+          <label class="switch">
+           <input type="checkbox" >
+           <span class="slider round" id="checkBoxField"></span>
+          </label>
+         <div id="noAction">Nem változtatok</div>
+        </section>
+        <div class="buttonContainer">
+          <div class="do" id="simulatorStartButtonContainer">
+            <button class="doors" id="simulatorStartButton">START</button>
+          </div>
+        </div>
+      <label id="tableHeader">A nyereményed:</label>
+    <section id="tableSection">
+      <div id="tableContainer">
+        <div id="diagramContainer">
+           <div id="autoDiagram"></div>
+           <div id="goatDiagram"></div>
+        </div> 
+        <table>
+          <tr>
+            <th id="carsText">Autó</th>
+            <th id="goatsText">Kecske</th>
+          </tr>
+        </table>  
+      </div>
+    </section>
+  </section>
+  <footer>
+    <div id="footerWapper">
+      <nav>
+        <small>2023</small> <strong id="bo">B</strong><strong id="ob">o</strong><strong id="bi">b</strong><strong id="ib">i</strong><strong id="be">b</strong><strong id="en">e</strong><strong id="nd">n</strong><strong id="db">d</strong></br>
+        <a class="footerA" href=""><i class="fa-solid fa-arrow-up"></i></a>
+        <a class="footerA" href="https://www.facebook.com/imre.juhasz.796" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a class="footerA" href="mailto:bobibend@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+      </nav>
+    </div> 
+  </footer>
+</div>
+</body>
+</html>
