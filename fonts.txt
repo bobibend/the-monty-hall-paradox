@@ -1,0 +1,3 @@
+font-family: 'Sansita', sans-serif;
+font-family: 'Scope One', serif;
+font-family: 'Shrikhand', cursive;
