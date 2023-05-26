@@ -167,7 +167,7 @@ p {
 
 .do {
   display: block;
-  height: 12.2vw;
+  height: 15vw;
   width: 50%;
   margin: 2vw;
   border-radius: 4vw;
@@ -183,7 +183,7 @@ p {
 }
 
 .biggerDo {
-  height: 17vw;
+  height: 20vw;
 }
 
 @media screen and (min-width: 480px) {
@@ -439,6 +439,10 @@ header {
   }
 }
 
+#yesButton3 {
+  font-size: 3.5vw;
+}
+
 @media screen and (min-width: 480px) {
   .yesButton3Container {
   font-size: 2vw;
@@ -520,7 +524,6 @@ header {
   box-shadow: 0.5vw 0.5vw 1vw 1vw rgb(11, 10, 11) inset;
   font-weight: bold;
   letter-spacing: 0.2vw;
-  text-align: center;
 }
 
 
