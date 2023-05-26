@@ -750,7 +750,7 @@ header {
 }
 
 .percentNumber {
-  font-size: 3.5vw;
+  font-size: 3vw;
 }
 
 @media screen and (min-width: 480px) {
