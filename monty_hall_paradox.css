@@ -636,13 +636,12 @@ header {
   justify-content: center;
   vertical-align: auto;
   width: 100%;
+  margin: 2vw 0vw;
 }
 
 .colorGoats {
   display: none;
   width: 50vw;
-  position: relative;
-  right: 3vw;
   transition: 2s ease;
   border-style: inset;
   border-width: 2vw;
