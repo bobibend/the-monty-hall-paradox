@@ -671,6 +671,10 @@ header {
   display: block;
 }
 
+#stay {
+  font-size: 3vw;
+}
+
 @media screen and (min-width: 480px) {
   #change, #stay {
     font-size: 2.3vw;
