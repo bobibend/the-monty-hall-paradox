@@ -440,7 +440,8 @@ header {
 }
 
 #yesButton3 {
-  font-size: 3.5vw;
+  font-size: 3vw;
+  padding-left: -2vw;
 }
 
 @media screen and (min-width: 480px) {
@@ -628,11 +629,13 @@ header {
   }
 }
 
+
+
 #showGoatContainer {
   display: flex;
   justify-content: center;
   vertical-align: auto;
-  margin: 4vw;
+  width: 100%;
 }
 
 .colorGoats {
