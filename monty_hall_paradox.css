@@ -528,10 +528,6 @@ header {
 }
 
 
-@media screen and (min-width: 480px) {
-  .doors {
-  }
-}
 
 .doors:hover {
   color:rgba(255, 255, 255, 0.874);
@@ -629,8 +625,6 @@ header {
   }
 }
 
-
-
 #showGoatContainer {
   display: flex;
   justify-content: center;
@@ -644,7 +638,7 @@ header {
   width: 50vw;
   transition: 2s ease;
   border-style: inset;
-  border-width: 2vw;
+  border-width: 2.1vw;
   border-radius: 10vw;
 }
 
@@ -668,6 +662,11 @@ header {
   border-color:#ff0202e1;
 }
 
+#prizeGoat {
+  border-color: #c1aa02;
+}
+
+
 #change, #stay {
   font-size: 3.2vw;
   display: block;
@@ -687,11 +686,6 @@ header {
   display: block;
 }
 
-@media screen and (min-width: 480px) {
-  .finalChoiceContainer {
-    
- }
-}
 
 #myFinalChoice {
   display: none;
@@ -725,6 +719,34 @@ header {
    border-width: 1.5vw;
  }
 }
+
+#winGoatContainerWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#winGoatContainer {
+  border-radius: 10vw;
+  width: 50vw;
+  box-shadow: 0vw 0vw 20vw 2vw rgba(255, 242, 0, 0.5);
+  margin-bottom: -4vw;
+}
+
+@media screen and (min-width: 480px) {
+  #winGoatContainer{
+   margin-bottom: -1vw;;
+ }
+}
+
+#prizeGoat {
+  display: block;
+  width: 50vw;
+  transition: 2s ease;
+  border-style: inset;
+  border-width: 2.1vw;
+  border-radius: 10vw;
+}
+
 /***************** EXPLANATION ****************/
 #explanation {
     background-color: rgba(100, 100, 100, 0.627);
