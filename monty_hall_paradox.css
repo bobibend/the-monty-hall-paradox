@@ -692,7 +692,7 @@ header {
 }
 
 #winText, #lostText {
-  display: none;
+  display: block;
 }
 
 #prizeCarContainer {
@@ -745,6 +745,12 @@ header {
   border-style: inset;
   border-width: 2.1vw;
   border-radius: 10vw;
+}
+
+@media screen and (min-width: 480px) {
+  #prizeGoat{
+   width: 29vw;
+ }
 }
 
 /***************** EXPLANATION ****************/
