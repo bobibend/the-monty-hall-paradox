@@ -692,7 +692,7 @@ header {
 }
 
 #winText, #lostText {
-  display: block;
+  display: none;
 }
 
 #prizeCarContainer {
