@@ -2,12 +2,12 @@
 /************************** GAME JS *************************/
 
 
-var gameA = Math.floor(Math.random() * 3);
-var gameB = Math.floor(Math.random() * 3);
-var gameC = Math.floor(Math.random() * 3);
-var gameAuto = 0;
-var gameGoat = 0;
-var buttonsSounds = document.getElementById("buttonsSound");
+let gameA = Math.floor(Math.random() * 3);
+let gameB = Math.floor(Math.random() * 3);
+let gameC = Math.floor(Math.random() * 3);
+let gameAuto = 0;
+let gameGoat = 0;
+let buttonsSounds = document.getElementById("buttonsSound");
 
 /* Ez tetszőlegesen kiosztja az ajtók között a nyereményt*/
 
@@ -30,7 +30,7 @@ console.log(gameA + ' -- ' + gameB + ' -- ' + gameC + ' --');
 
 /* Ez egyeztetni az ajtó színét a nyereménnyel 2=autó*/
 
-var gamePrizeDoor = undefined;
+let gamePrizeDoor = undefined;
 
 function gamePrize() {
   if (gameA == 2) {
@@ -54,50 +54,57 @@ function gamePrize() {
 /* Ezzel meghívom a randomPrize és a gamePrize függvényeket, és 
 ezzel elindítom a játékot */
 
-$(document).ready(function() {
-  $("#yesButton1").click(function(){
+$(document).on('click','#yesButton1',function() {
     buttonsSound.play();
     randomPrize();
     gamePrize();
     console.log("hüle " + gamePrizeDoor);
-    $("#yesButton1Container").hide(1000);
+    $("#yesButton1Container").hide(500);
   });
-});
 
 /* Name input*/
 
-$(document).ready(function(){
-  $(".name").keyup(function(){
+$(document).on('keyup','.name',function(){
     $(".nameSpan").text($(".name").val()+ '!');
   });
-});
 
 /* First choice */
 /* Ezzel a játékos kiválaszt egy ajtót 
 és ezzel frissítem a #gameFirstCoice elem tartalmát */
 
-  $("#blueDoorButton").click(function() {
+function gameFirstChoiceTextBlue() {
+  $("#gameFirstChoice").text($("#blueDoorButton").text());
+  gameFirstChoice = document.getElementById("gameFirstChoice").innerHTML;
+  console.log(gameFirstChoice + " ajtót választottad először.");
+}
+
+  $(document).on('click','#blueDoorButton',function() {
     buttonsSound.play();
-    $("#gameFirstChoice").text($("#blueDoorButton").text());
-    gameFirstChoice = document.getElementById("gameFirstChoice").innerHTML;
-    console.log(gameFirstChoice + " ajtót választottad először.");
+    gameFirstChoiceTextBlue();
     $(".coloredDoorsContainer").hide(500);
     });
 
+function gameFirstChoiceTextYellow() {
+  $("#gameFirstChoice").text($("#yellowDoorButton").text());
+  gameFirstChoice = document.getElementById("gameFirstChoice").innerHTML;
+  console.log(gameFirstChoice + " ajtót választottad először.");
+}
 
-  $("#yellowDoorButton").click(function() {
+  $(document).on('click','#yellowDoorButton',function() {
     buttonsSound.play();
-    $("#gameFirstChoice").text($("#yellowDoorButton").text());
-    gameFirstChoice = document.getElementById("gameFirstChoice").innerHTML;
-    console.log(gameFirstChoice + " ajtót választottad először.");
+    gameFirstChoiceTextYellow();
     $(".coloredDoorsContainer").hide(500);
   });
 
-  $("#redDoorButton").click(function() {
+function gameFirstChoiceTextRed() {
+  $("#gameFirstChoice").text($("#redDoorButton").text());
+  gameFirstChoice = document.getElementById("gameFirstChoice").innerHTML;
+  console.log(gameFirstChoice + " ajtót választottad először.");
+}
+
+  $(document).on('click','#redDoorButton',function() {
     buttonsSound.play();
-    $("#gameFirstChoice").text($("#redDoorButton").text());
-    gameFirstChoice = document.getElementById("gameFirstChoice").innerHTML;
-    console.log(gameFirstChoice + " ajtót választottad először.");
+    gameFirstChoiceTextRed();
     $(".coloredDoorsContainer").hide(500);
   });
 
@@ -108,16 +115,16 @@ $(document).ready(function(){
 /* var gamePrizeDoorGlobal = gamePrizeDoor;*/
 /* var gameFirstChoiceGlobal = gameFirstChoice; */
 
-var gameShowGoat = undefined;
+let gameShowGoat = undefined;
 
 function randomGoatFunction () {
   function randomGoat1(goatDoors1) { 
     return goatDoors1[Math.floor(Math.random()*goatDoors1.length)];    
   };
   
-  var goatDoors1 = ["kék","sárga","piros"];
+  let goatDoors1 = ["kék","sárga","piros"];
   
-  randomGoat1(goatDoors1)
+  randomGoat1(goatDoors1);
   
   gameShowGoat = gamePrizeDoor;
   
@@ -133,8 +140,7 @@ function randomGoatFunction () {
   
 
 
-$(document).ready(function() {
-  $("#yesButton2").click(function() {
+$(document).on('click','#yesButton2',function() {
     buttonsSound.play();
     randomGoatFunction();
     $("#gameShowGoatID").text(gameShowGoat);
@@ -153,14 +159,13 @@ $(document).ready(function() {
     console.log(gameFirstChoice + " ez a gamefirstchoice");
     console.log(gameShowGoat + " ez a gameshowgoat");
   });
-});
 
 
 /* Ez a szekció lehetőséget ad arra, hogy a játékos a másik ajtót válassza. 
 Először szöveg szerint említi, aztán pedig a gombbal választható is. */
 
 
-var gameSecondChoice = undefined;
+let gameSecondChoice = undefined;
 
 function gameDoorChange () {
   function gameNewDoor(gameNewDoorList) { 
@@ -183,61 +188,38 @@ function gameDoorChange () {
   
 };
 
-$(document).ready(function() {
-  $("#yesButton3").click(function() {
+$(document).on('click','#yesButton3',function() {
     buttonsSound.play();
     gameDoorChange();
-    $(".secondChoice").text(gameSecondChoice);
+    $('.secondChoice').text(gameSecondChoice);
     console.log(gameSecondChoice + " ez a gamesecondchoice");
   });
-});
 
-var gameFinalDoor = undefined;
+/* Ez a programrész az utolsó döntés (váltás/maradás) megadását kezeli. */
+let gameFinalDoor = undefined;
 
-$(document).ready(function() { 
-  $("#change").click(function() {
+
+$(document).on('click','#change',function() {
     buttonsSound.play();
     gameFinalDoor = gameSecondChoice;
     console.log(gameFinalDoor + " amit választottam");
-    switch (gameFinalDoor) {
-      case gameSecondChoice:
-        $("#myFinalChoice").text("Ön tehát egy új ajtót választott. Nézzük meg, sikerrel járt-e!");
-        console.log(gameFinalDoor);
-        break;
-      case gameFirstChoice:
-        $("#myFinalChoice").text("Ön tehát kitart az első választása mellett, de vajon jól döntött-e?");
-        console.log(gameFinalDoor);
-        break;
-    };
+    $("#myFinalChoice").text("Ön tehát egy új ajtót választott. Nézzük meg, sikerrel járt-e!");
     $(".finalChoiceContainer").hide(500);
     $("#myFinalChoice").css("display","block");
+    return gameFinalDoor; 
   });
-  return gameFinalDoor
-});  
 
-$(document).ready(function() {
-  $("#stay").click(function() {
+$(document).on('click','#stay',function() {
     buttonsSound.play();
     gameFinalDoor = gameFirstChoice;
-    console.log(gameFinalDoor + " amit választottam");
-    switch (gameFinalDoor) {
-      case gameSecondChoice:
-        $("#myFinalChoice").text("Ön tehát egy új ajtót választott. De vajon sikerrel járt-e!");
-        console.log(gameFinalDoor);
-        break;
-      case gameFirstChoice:
-        $("#myFinalChoice").text("Ön tehát kitart az első választása mellett, de vajon jól döntött-e?");
-        console.log(gameFinalDoor + " ezagamefinaldoor");
-        break;
-    };
+    console.log(gameFinalDoor + " amit választottam");  
+    $("#myFinalChoice").text("Ön tehát kitart az első választása mellett, de vajon jól döntött-e?");
     $(".finalChoiceContainer").hide(500);
     $("#myFinalChoice").css("display","block");
+    return gameFinalDoor
   });
-  return gameFinalDoor
-});
 
-$(document).ready(function() {
-  $("#yesButton4").click(function() {
+$(document).on('click','#yesButton4',function() {
     buttonsSound.play();
     if (gameFinalDoor == gamePrizeDoor) {
       $("#winText").css("display","block")
@@ -245,22 +227,20 @@ $(document).ready(function() {
       $("#lostText").css("display","block")
     };
   });
-});
 
-                            /* GAME */
+                            /* EXPLANATION */
 /* Ez a rész megjeleníti a tippekhez tartozó szöveget*/
-$(document).ready(function() {
-  $("#sixtySix").click(function() {
+$(document).on('click','#sixtySix',function() {
     buttonsSound.play();
-     $("#correctText").css("display","block");
-     $(".percentNumberContainer").hide(750);
+    $("#correctText").css("display","block");
+    $(".percentNumberContainer").hide(750);
     });
-  $(".thirtyThreefifty").click(function() {
+    $(".thirtyThreefifty").click(function() {
     buttonsSound.play();
     $("#wrongText").css("display","block");
     $(".percentNumberContainer").hide(750);
   });
-});
+
 
                         /* SIMULATOR */
 
@@ -270,34 +250,32 @@ egy hangfájlt */
 
 var slotGameAudio = document.getElementById("slotGameAudio");
 
-checkBoxColor = "rgb(113, 174, 225)";
-$(document).ready(function() {
-  $("#simulatorStartButton").click(function() {
-      simulator(checkBoxColor);
-      slotGameAudio.play();
-});
+var checkBoxColor = "rgb(113, 174, 225)";
+
+function getSlidersColor () {
+  var checkBox = document.querySelector(".slider");
+  checkBoxColor = window.getComputedStyle(checkBox).getPropertyValue("background-color");
+}
+
+$(document).on('click','.slider',function(){
+  getSlidersColor ();
+  console.log(checkBoxColor);
 });
 
-$(document).ready(function(){
-  $(".slider").click(function(){
-    var checkBox = document.querySelector(".slider");
-    var checkBoxColor = window.getComputedStyle(checkBox).getPropertyValue("background-color");
-    console.log(checkBoxColor);
-    $("#simulatorStartButton").click(function() {
-      simulator(checkBoxColor);
-  });
-  return checkBoxColor;
+$(document).on('click','#simulatorStartButton',function(){
+  slotGameAudio.play();
+  simulator(checkBoxColor);
 });
-});
+
 
 /* A programrész először kiosztja az ajtók mögötti nyereményeket.
 0= kecske, 1= kecske 2= autó */
 if (counter > 200) {
-  alert("Írj kevesebb kört!");
+  alert("Maximum 200 kört állíts be!");
   counter = 0;
 }
 
-function simulator(color) {
+function simulator (color) {
 
 var A = Math.floor(Math.random() * 3);
 var B = Math.floor(Math.random() * 3);
@@ -351,7 +329,7 @@ function prize() {
   return prizeDoor;
 }
 
-var prizeDoorGlobal = prize();
+let prizeDoorGlobal = prize();
 
 
 /* A programrész kiválaszt egy ajtót. */
